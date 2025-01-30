@@ -43,7 +43,7 @@ koyeb volume create openwebui-data --region fra --size 10
 5) Deploy the Docker container to a new instance on Koyeb
 
 ```
-koyeb deploy . openwebui/demo \
+koyeb deploy . openwebui/ollama-with-ui \
     --instance-type gpu-nvidia-a100 \
     --region fra \
     --checks 8000:tcp \
@@ -52,7 +52,7 @@ koyeb deploy . openwebui/demo \
     --archive-builder docker \
     --archive-docker-dockerfile Dockerfile \
     --env MODEL_NAME=deepseek-r1:8b \
-   --volumes openwebui-data :/app/backend/data
+    --volumes openwebui-data:/app/backend/data
 ```
 
 6) Log on to Koyeb's dashboard and check the URL to access to create an admin user for your Web UI.
