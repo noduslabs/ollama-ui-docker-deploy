@@ -10,5 +10,9 @@ ENV OLLAMA_KEEP_ALIVE -1
 # where the models are stored
 ENV OLLAMA_MODELS=/ollama/models
 
+
+# link to a PostgreSQL database instance where the chats and the UI settings are stored. uncomment for production
+# ENV DATABASE_URL=
+
 # run the model, wait, and then pull the model
 RUN ollama serve & sleep 5 && ollama pull $MODEL_NAME
