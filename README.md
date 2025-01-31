@@ -64,9 +64,9 @@ koyeb volume create openwebui-data --region fra --size 10
 
 5) Deploy the Docker container to a new instance on Koyeb
 
-   You have 2 options:
+You have 2 options:
 
-   a) A cheaper GPU (~$400 a month) with no volume to persist downloaded models — which means if the service crashes, it'll take some time to come up again and download the model and it will also lose the Web UI settings (including any users you created). In this case, you have to provide a link to your PostgreSQL service in your Dockerfile where all your data, including chats, will be stored. This is actually a good option because you are in full control in your data and you can decouple it from it the server.
+a) A cheaper GPU (~$400 a month) with no volume to persist downloaded models — which means if the service crashes, it'll take some time to come up again and download the model and it will also lose the Web UI settings (including any users you created). In this case, you have to provide a link to your PostgreSQL service in your Dockerfile where all your data, including chats, will be stored. This is actually a good option because you are in full control in your data and you can decouple it from it the server.
 
 ```
 koyeb deploy . openwebui/ollama-with-ui \
@@ -80,7 +80,7 @@ koyeb deploy . openwebui/ollama-with-ui \
     --env MODEL_NAME=deepseek-r1:8b 
 ```
  
-    b) a more expensive GPU (~ $1500 a month) with a volume attached to persist your data - which means your server will retain the downloaded model even if it crashes as well as the user data. But they will be stored in the container. For more persistent storage, consider creating a PostgreSQL instance and providing its value in Dockerfile.
+b) a more expensive GPU (~ $1500 a month) with a volume attached to persist your data - which means your server will retain the downloaded model even if it crashes as well as the user data. But they will be stored in the container. For more persistent storage, consider creating a PostgreSQL instance and providing its value in Dockerfile.
  
 ```
 koyeb deploy . openwebui/ollama-with-ui \
